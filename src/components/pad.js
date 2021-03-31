@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
+import useKeyPress from '../hooks/useKeyPress'
 
 const Button = styled.button`
   width: 100%;
@@ -24,9 +25,15 @@ const Button = styled.button`
     top: 6px;
   `}
 `
-const Pad = ({ color, note, letter, playSound }) => (
-<Button onClick={() => playSound(letter)} color ={color}>
-    {note}({letter})
-</Button>
-)
+const Pad = ({ color, note, letter, playSound }) => {
+    const isPressed = useKeyPress(letter)
+
+    return ((
+        <Button onClick={() => playSound(letter)} isPressed = {isPressed} color ={color}>
+            {note}({letter})
+        </Button>
+        ))
+
+
+}
 export default Pad
