@@ -10,6 +10,14 @@ const defaultContext = {
 const AppContext = createContext(defaultContext)
 
 const reducer = (state, action) => {
+    switch(action.type) {
+        case 'CHANGE_SCALE':
+            return {
+                ...state,
+                ...scales[action.payload]
+
+            }
+    }
     return state
 }
 
