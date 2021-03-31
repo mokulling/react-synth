@@ -17,6 +17,11 @@ const reducer = (state, action) => {
                 ...scales[action.payload]
 
             }
+        case 'CHANGE_VOLUME':
+            return {
+                ...state,
+                volume: action.payload
+            }
     }
     return state
 }

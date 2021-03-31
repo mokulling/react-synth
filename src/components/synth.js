@@ -25,6 +25,8 @@ const Synth = () => {
         : new DuoSynth()
 
 
+    synth.volume.value = state.volume
+
     synth.toDestination()
 
     useEffect(() => {
@@ -36,7 +38,9 @@ const Synth = () => {
 
     const playSound = letterPressed => {
         const foundNote = state.notes.find(note => note.letter == letterPressed)
+        if (foundNote){
         synth.triggerAttackRelease(foundNote.note, '8n')
+        }
     }
 
 
