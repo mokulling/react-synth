@@ -11,13 +11,14 @@ export default function Volume() {
 
 
     return <Donut
-        diameter={200}
+        diameter={300}
         min={-12}
         max={12}
         step={1}
         value={state.volume}
         theme={{
-            donutColor: 'blue'
+            donutColor: 'green'
+            
         }}
         onValueChange={newVolume => dispatch({type: 'CHANGE_VOLUME', payload: newVolume})}
         ariaLabelledBy='volume'

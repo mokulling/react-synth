@@ -8,9 +8,16 @@ import Volume from './components/volume'
 function App() {
   return (
     <AppProvider>
-      <Layout>
-    <ScaleSelector />
-    <Volume />
+      <Layout controls={(
+      
+        <>
+      <ScaleSelector />
+      <Volume />
+        </>
+
+      
+      )}>
+    
     <Synth />
     </Layout>
     </AppProvider>

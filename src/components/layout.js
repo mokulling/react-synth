@@ -9,9 +9,17 @@ const Background = styled.div`
 
 `
 
-const Layout = ({ children }) => {
+const ControlsContainer = styled.div `
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+`
+
+const Layout = ({ children, controls }) => {
     const { state } = useAppContext()
     return <Background theme={state.theme}>
+        <ControlsContainer>{controls}</ControlsContainer>
         <div>{children}</div>
     </Background>
 }
