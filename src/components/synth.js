@@ -26,14 +26,23 @@ const Synth = () => {
 
     synth.toDestination()
 
-    const playSound = () => {
-        
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeydown)
+        return () => window.removeEventListener('keydown', handleKeydown)
+    }, [])
+
+    const handleKeydown = e => playSound(e.key)
+
+    const playSound = letterPressed => {
+        const foundNote = state.notes.find(note => note.letter == letterPressed)
+        synth.triggerAttackRelease(foundNote.note, '8n')
     }
 
 
     return (
         <PadGrid>
-            {state.notes.map(noteObj => <Pad {...noteObj} key={noteObj.letter}/>)}
+            {state.notes.map(noteObj => (
+            <Pad {...noteObj} playSound = {playSound} key={noteObj.letter}/>))}
         </PadGrid>
     )
 

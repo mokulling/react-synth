@@ -24,6 +24,9 @@ const Button = styled.button`
     top: 6px;
   `}
 `
-const Pad = ({ color, note, letter }) => <Button color ={color}>{note}({letter})</Button>
-
+const Pad = ({ color, note, letter, playSound }) => (
+<Button onClick={() => playSound(letter)} color ={color}>
+    {note}({letter})
+</Button>
+)
 export default Pad
